@@ -84,3 +84,21 @@ resource "aws_route_table" "private" {
 }
 
 
+# ec2 instance 
+resource "aws_instance" "myec2" {
+  ami     = "ami-0f8a61b66d1accaee"
+  instance_type = "t3.micro"
+
+
+
+  tags = {
+    Name = "myec2"
+  }
+}
+
+
+output "server_ip" {
+    value = aws_instance.myec2.public_ip
+  }
+
+
